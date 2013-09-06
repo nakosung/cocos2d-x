@@ -225,7 +225,7 @@ void WebFile::get(const char * url, const char * destFile, fn_cb_t callback)
 void clear(fn_cb_t callback)
 {
 	caller->requestCall(callback, true);
-	clearing = true;
+	clearing = false;
 }
 
 void WebFile::clearStorage(fn_cb_t callback)
