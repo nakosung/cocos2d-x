@@ -685,7 +685,7 @@ JS_BINDED_FUNC_IMPL(MinXmlHttpRequest, sendFile)
     std::string data;
     
     // Clean up header map. New request, new headers!
-    http_header.clear();
+    _httpHeader.clear();
     if (argc == 1) {
         if (!JS_ConvertArguments(cx, argc, JS_ARGV(cx, vp), "S", &str)) {
             return JS_FALSE;
@@ -702,8 +702,8 @@ JS_BINDED_FUNC_IMPL(MinXmlHttpRequest, sendFile)
         return JS_FALSE;
     }
     
-    if (size > 0 && (meth.compare("post") == 0 || meth.compare("POST") == 0)) {
-        cc_request->setRequestData((const char*)buf, size);
+    if (size > 0 && (_meth.compare("post") == 0 || _meth.compare("POST") == 0)) {
+        _httpRequest->setRequestData((const char*)buf, size);
     }
     delete[] buf;
     
