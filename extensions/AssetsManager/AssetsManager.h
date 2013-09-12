@@ -147,15 +147,6 @@ public:
      */
     friend int assetsManagerProgressFunc(void *, double, double, double, double);
 
-    /** @brief Initializes storage path. 
-     */
-    void createStoragePath();
-
-    /** @brief Destroys storage path. 
-     */
-    void destroyStoragePath();
-
-    
 protected:
     bool downLoad();
     void checkStoragePath();
@@ -190,6 +181,14 @@ private:
         std::mutex _messageQueueMutex;
     };
 
+private:
+    /** @brief Initializes storage path.
+     */
+    void createStoragePath();
+    
+    /** @brief Destroys storage path.
+     */
+    void destroyStoragePath();
     
 private:
     //! The path to store downloaded resources.
@@ -226,7 +225,7 @@ public:
     virtual void onError(AssetsManager::ErrorCode errorCode) {};
     /** @brief Call back function for recording downloading percent
         @param percent How much percent downloaded
-        @warn This call back function just for recording downloading percent.
+        @warning    This call back function just for recording downloading percent.
               AssetsManager will do some other thing after downloading, you should
               write code in onSuccess() after downloading. 
      */
