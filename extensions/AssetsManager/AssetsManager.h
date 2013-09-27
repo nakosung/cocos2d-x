@@ -194,7 +194,7 @@ private:
         std::mutex _messageQueueMutex;
     };
 
-private:
+public:
     /** @brief Initializes storage path.
      */
     void createStoragePath();
