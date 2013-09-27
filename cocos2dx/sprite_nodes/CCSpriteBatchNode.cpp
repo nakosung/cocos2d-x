@@ -169,32 +169,6 @@ void SpriteBatchNode::visit(void)
     CC_PROFILER_STOP_CATEGORY(kProfilerCategoryBatchSprite, "CCSpriteBatchNode - visit");
 }
 
-void SpriteBatchNode::addChild(Node *child)
-{
-    CCASSERT(child != NULL, "child should not be null");
-    CCASSERT(dynamic_cast<Sprite*>(child) != NULL, "CCSpriteBatchNode only supports Sprites as children");
-    Sprite *sprite = static_cast<Sprite*>(child);
-    // check Sprite is using the same texture id
-    CCASSERT(sprite->getTexture()->getName() == _textureAtlas->getTexture()->getName(), "CCSprite is not using the same texture id");
-
-    Node::addChild(child);
-
-    appendChild(sprite);
-}
-
-void SpriteBatchNode::addChild(Node *child, int zOrder)
-{
-    CCASSERT(child != NULL, "child should not be null");
-    CCASSERT(dynamic_cast<Sprite*>(child) != NULL, "CCSpriteBatchNode only supports Sprites as children");
-    Sprite *sprite = static_cast<Sprite*>(child);
-    // check Sprite is using the same texture id
-    CCASSERT(sprite->getTexture()->getName() == _textureAtlas->getTexture()->getName(), "CCSprite is not using the same texture id");
-
-    Node::addChild(child, zOrder);
-
-    appendChild(sprite);
-}
-
 void SpriteBatchNode::addChild(Node *child, int zOrder, int tag)
 {
     CCASSERT(child != NULL, "child should not be null");
