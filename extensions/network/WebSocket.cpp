@@ -545,7 +545,7 @@ int WebSocket::onSocketCallback(struct libwebsocket_context *ctx,
                             writeProtocol |= LWS_WRITE_NO_FIN;
                         }
                         
-                        bytesWrite = libwebsocket_write(wsi,  &buf[LWS_SEND_BUFFER_PRE_PADDING], data->len, (libwebsocket_write_protocol)writeProtocol);
+                        bytesWrite = libwebsocket_write(wsi,  &buf[LWS_SEND_BUFFER_PRE_PADDING], n, (libwebsocket_write_protocol)writeProtocol);
                         
                         // Buffer overrun?
                         if (bytesWrite < 0)
